@@ -14,6 +14,19 @@
 		8C5A875F2450B258000894C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5A875E2450B258000894C8 /* Assets.xcassets */; };
 		8C5A87622450B258000894C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5A87602450B258000894C8 /* LaunchScreen.storyboard */; };
 		8C5A876D2450B258000894C8 /* TesteiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A876C2450B258000894C8 /* TesteiOSTests.swift */; };
+		8C5A87792450B6C5000894C8 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87782450B6C5000894C8 /* EndPoints.swift */; };
+		8C5A87832451DCAC000894C8 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A877D2451DCAC000894C8 /* LoginPresenter.swift */; };
+		8C5A87842451DCAC000894C8 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A877E2451DCAC000894C8 /* LoginWorker.swift */; };
+		8C5A87852451DCAC000894C8 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A877F2451DCAC000894C8 /* LoginRouter.swift */; };
+		8C5A87862451DCAC000894C8 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87802451DCAC000894C8 /* LoginModels.swift */; };
+		8C5A87872451DCAC000894C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87812451DCAC000894C8 /* LoginViewController.swift */; };
+		8C5A87882451DCAC000894C8 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87822451DCAC000894C8 /* LoginInteractor.swift */; };
+		8C5A878F2451DCCC000894C8 /* InvestmentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87892451DCCC000894C8 /* InvestmentsPresenter.swift */; };
+		8C5A87902451DCCC000894C8 /* InvestmentsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878A2451DCCC000894C8 /* InvestmentsWorker.swift */; };
+		8C5A87912451DCCC000894C8 /* InvestmentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878B2451DCCC000894C8 /* InvestmentsRouter.swift */; };
+		8C5A87922451DCCC000894C8 /* InvestmentsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878C2451DCCC000894C8 /* InvestmentsModels.swift */; };
+		8C5A87932451DCCC000894C8 /* InvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878D2451DCCC000894C8 /* InvestmentsViewController.swift */; };
+		8C5A87942451DCCC000894C8 /* InvestmentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878E2451DCCC000894C8 /* InvestmentsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +51,19 @@
 		8C5A87682450B258000894C8 /* TesteiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TesteiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5A876C2450B258000894C8 /* TesteiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteiOSTests.swift; sourceTree = "<group>"; };
 		8C5A876E2450B258000894C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C5A87782450B6C5000894C8 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		8C5A877D2451DCAC000894C8 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		8C5A877E2451DCAC000894C8 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		8C5A877F2451DCAC000894C8 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		8C5A87802451DCAC000894C8 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		8C5A87812451DCAC000894C8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8C5A87822451DCAC000894C8 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		8C5A87892451DCCC000894C8 /* InvestmentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsPresenter.swift; sourceTree = "<group>"; };
+		8C5A878A2451DCCC000894C8 /* InvestmentsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsWorker.swift; sourceTree = "<group>"; };
+		8C5A878B2451DCCC000894C8 /* InvestmentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsRouter.swift; sourceTree = "<group>"; };
+		8C5A878C2451DCCC000894C8 /* InvestmentsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsModels.swift; sourceTree = "<group>"; };
+		8C5A878D2451DCCC000894C8 /* InvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsViewController.swift; sourceTree = "<group>"; };
+		8C5A878E2451DCCC000894C8 /* InvestmentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +105,8 @@
 		8C5A87542450B255000894C8 /* TesteiOS */ = {
 			isa = PBXGroup;
 			children = (
+				8C5A877A2450BFC4000894C8 /* Scenes */,
+				8C5A87772450B6A2000894C8 /* Services */,
 				8C5A87552450B255000894C8 /* AppDelegate.swift */,
 				8C5A87572450B255000894C8 /* SceneDelegate.swift */,
 				8C5A87592450B255000894C8 /* ViewController.swift */,
@@ -97,6 +125,49 @@
 				8C5A876E2450B258000894C8 /* Info.plist */,
 			);
 			path = TesteiOSTests;
+			sourceTree = "<group>";
+		};
+		8C5A87772450B6A2000894C8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A87782450B6C5000894C8 /* EndPoints.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8C5A877A2450BFC4000894C8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A877C2451DC45000894C8 /* Investments */,
+				8C5A877B2451DC12000894C8 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8C5A877B2451DC12000894C8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A877D2451DCAC000894C8 /* LoginPresenter.swift */,
+				8C5A877E2451DCAC000894C8 /* LoginWorker.swift */,
+				8C5A877F2451DCAC000894C8 /* LoginRouter.swift */,
+				8C5A87802451DCAC000894C8 /* LoginModels.swift */,
+				8C5A87812451DCAC000894C8 /* LoginViewController.swift */,
+				8C5A87822451DCAC000894C8 /* LoginInteractor.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8C5A877C2451DC45000894C8 /* Investments */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A87892451DCCC000894C8 /* InvestmentsPresenter.swift */,
+				8C5A878A2451DCCC000894C8 /* InvestmentsWorker.swift */,
+				8C5A878B2451DCCC000894C8 /* InvestmentsRouter.swift */,
+				8C5A878C2451DCCC000894C8 /* InvestmentsModels.swift */,
+				8C5A878D2451DCCC000894C8 /* InvestmentsViewController.swift */,
+				8C5A878E2451DCCC000894C8 /* InvestmentsInteractor.swift */,
+			);
+			path = Investments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +271,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5A87872451DCAC000894C8 /* LoginViewController.swift in Sources */,
+				8C5A87942451DCCC000894C8 /* InvestmentsInteractor.swift in Sources */,
 				8C5A875A2450B255000894C8 /* ViewController.swift in Sources */,
+				8C5A87862451DCAC000894C8 /* LoginModels.swift in Sources */,
 				8C5A87562450B255000894C8 /* AppDelegate.swift in Sources */,
+				8C5A87922451DCCC000894C8 /* InvestmentsModels.swift in Sources */,
+				8C5A87792450B6C5000894C8 /* EndPoints.swift in Sources */,
 				8C5A87582450B255000894C8 /* SceneDelegate.swift in Sources */,
+				8C5A87912451DCCC000894C8 /* InvestmentsRouter.swift in Sources */,
+				8C5A878F2451DCCC000894C8 /* InvestmentsPresenter.swift in Sources */,
+				8C5A87832451DCAC000894C8 /* LoginPresenter.swift in Sources */,
+				8C5A87902451DCCC000894C8 /* InvestmentsWorker.swift in Sources */,
+				8C5A87852451DCAC000894C8 /* LoginRouter.swift in Sources */,
+				8C5A87932451DCCC000894C8 /* InvestmentsViewController.swift in Sources */,
+				8C5A87882451DCAC000894C8 /* LoginInteractor.swift in Sources */,
+				8C5A87842451DCAC000894C8 /* LoginWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gchaves.TesteiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -392,7 +476,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gchaves.TesteiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
