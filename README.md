@@ -81,3 +81,13 @@ Faça um fork desse desse repositório em seu Github e nos envie um Pull Request
 ### # Importante: não há prazo de entrega, faça com qualidade!
 
 # BOA SORTE!
+
+# Anotações
+
+## Referências utilizadas
+
+[Template de Clean para Xcode](https://medium.com/swift2go/installing-the-clean-swift-template-in-xcode-6b4367006827)
+[Overview de Clean Swift](https://hackernoon.com/introducing-clean-swift-architecture-vip-770a639ad7bf)
+[Outro overview de Clean](https://zonneveld.dev/the-clean-swift-architecture-explained/)
+[Exemplo de Clean](https://github.com/Clean-Swift/CleanStore)
+

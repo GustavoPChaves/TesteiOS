@@ -27,6 +27,9 @@
 		8C5A87922451DCCC000894C8 /* InvestmentsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878C2451DCCC000894C8 /* InvestmentsModels.swift */; };
 		8C5A87932451DCCC000894C8 /* InvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878D2451DCCC000894C8 /* InvestmentsViewController.swift */; };
 		8C5A87942451DCCC000894C8 /* InvestmentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A878E2451DCCC000894C8 /* InvestmentsInteractor.swift */; };
+		8C5A87972451E3AA000894C8 /* FormFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87962451E3AA000894C8 /* FormFormat.swift */; };
+		8C5A87992451E3C8000894C8 /* Investments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87982451E3C8000894C8 /* Investments.swift */; };
+		8C5A87BA24535230000894C8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A87B924535230000894C8 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		8C5A878C2451DCCC000894C8 /* InvestmentsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsModels.swift; sourceTree = "<group>"; };
 		8C5A878D2451DCCC000894C8 /* InvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsViewController.swift; sourceTree = "<group>"; };
 		8C5A878E2451DCCC000894C8 /* InvestmentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsInteractor.swift; sourceTree = "<group>"; };
+		8C5A87962451E3AA000894C8 /* FormFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFormat.swift; sourceTree = "<group>"; };
+		8C5A87982451E3C8000894C8 /* Investments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Investments.swift; sourceTree = "<group>"; };
+		8C5A87B924535230000894C8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,8 @@
 		8C5A87542450B255000894C8 /* TesteiOS */ = {
 			isa = PBXGroup;
 			children = (
+				8C5A879A24534B39000894C8 /* Common */,
+				8C5A87952451E36E000894C8 /* Models */,
 				8C5A877A2450BFC4000894C8 /* Scenes */,
 				8C5A87772450B6A2000894C8 /* Services */,
 				8C5A87552450B255000894C8 /* AppDelegate.swift */,
@@ -131,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				8C5A87782450B6C5000894C8 /* EndPoints.swift */,
+				8C5A87B924535230000894C8 /* Service.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -168,6 +177,22 @@
 				8C5A878E2451DCCC000894C8 /* InvestmentsInteractor.swift */,
 			);
 			path = Investments;
+			sourceTree = "<group>";
+		};
+		8C5A87952451E36E000894C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A87962451E3AA000894C8 /* FormFormat.swift */,
+				8C5A87982451E3C8000894C8 /* Investments.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8C5A879A24534B39000894C8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,11 +296,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5A87BA24535230000894C8 /* Service.swift in Sources */,
 				8C5A87872451DCAC000894C8 /* LoginViewController.swift in Sources */,
 				8C5A87942451DCCC000894C8 /* InvestmentsInteractor.swift in Sources */,
 				8C5A875A2450B255000894C8 /* ViewController.swift in Sources */,
+				8C5A87972451E3AA000894C8 /* FormFormat.swift in Sources */,
 				8C5A87862451DCAC000894C8 /* LoginModels.swift in Sources */,
 				8C5A87562450B255000894C8 /* AppDelegate.swift in Sources */,
+				8C5A87992451E3C8000894C8 /* Investments.swift in Sources */,
 				8C5A87922451DCCC000894C8 /* InvestmentsModels.swift in Sources */,
 				8C5A87792450B6C5000894C8 /* EndPoints.swift in Sources */,
 				8C5A87582450B255000894C8 /* SceneDelegate.swift in Sources */,
