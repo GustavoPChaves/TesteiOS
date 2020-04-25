@@ -20,22 +20,27 @@ protocol LoginBusinessLogic
 protocol LoginDataStore
 {
   //var name: String { get set }
+    var formFormat: [Cell] { get set }
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore
 {
+    
   var presenter: LoginPresentationLogic?
   var worker: LoginWorker?
   //var name: String = ""
+    var formFormat: [Cell] = []
+    
   
   // MARK: Do something
   
   func doSomething(request: Login.Something.Request)
   {
     worker = LoginWorker()
-    worker?.doSomeWork()
+    (worker?.doSomeWork(success: { formFormat in
+        let response = Login.Something.Response(formFormat: formFormat)
+        self.presenter?.presentSomething(response: response)
+    }))
     
-    let response = Login.Something.Response()
-    presenter?.presentSomething(response: response)
   }
 }

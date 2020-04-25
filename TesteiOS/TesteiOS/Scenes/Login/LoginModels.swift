@@ -23,9 +23,11 @@ enum Login
     }
     struct Response
     {
+        var formFormat: [Cell]
     }
     struct ViewModel
     {
+        var view: UIView
     }
   }
     

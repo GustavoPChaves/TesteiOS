@@ -25,7 +25,18 @@ class LoginPresenter: LoginPresentationLogic
   
   func presentSomething(response: Login.Something.Response)
   {
-    let viewModel = Login.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    response.formFormat.forEach { (cell) in
+        cell.viewFrom { (view) in
+            let viewModel = Login.Something.ViewModel(view: view)
+            self.viewController?.displaySomething(viewModel: viewModel)
+        }
+        //print(view.subviews[0])
+        
+    }
+    
+
   }
+    
+    
+
 }

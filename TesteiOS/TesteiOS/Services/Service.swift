@@ -12,7 +12,7 @@ class Service{
     
     static let shared = Service()
 
-    func FetchLoginForm(completion: @escaping ([Cell], Error?) -> ()) {
+    func fetchLoginForm(completion: @escaping ([Cell], Error?) -> ()) {
         let urlString = EndPoints.form
         
         guard let url = URL(string: urlString) else {return}
@@ -38,7 +38,7 @@ class Service{
         }.resume()
     }
     
-    func FetchFunds(completion: @escaping (Screen?, Error?) -> ()) {
+    func fetchFunds(completion: @escaping (Screen?, Error?) -> ()) {
         let urlString = EndPoints.form
         
         guard let url = URL(string: urlString) else {return}

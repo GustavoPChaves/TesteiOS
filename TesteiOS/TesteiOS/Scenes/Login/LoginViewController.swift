@@ -68,6 +68,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   
   override func viewDidLoad()
   {
+    vStack = UIStackView(frame: view.frame)
+    vStack.axis = .vertical
+    vStack.spacing = 8
+    view.addSubview(vStack)
     super.viewDidLoad()
     doSomething()
   }
@@ -75,6 +79,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
+    var vStack: UIStackView!
   
   func doSomething()
   {
@@ -85,5 +90,8 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   func displaySomething(viewModel: Login.Something.ViewModel)
   {
     //nameTextField.text = viewModel.name
+    let view = viewModel.view
+    view.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+    vStack.addArrangedSubview(view)
   }
 }

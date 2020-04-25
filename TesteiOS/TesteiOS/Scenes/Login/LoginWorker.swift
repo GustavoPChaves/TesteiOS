@@ -14,7 +14,14 @@ import UIKit
 
 class LoginWorker
 {
-  func doSomeWork()
+    func doSomeWork(success: @escaping(([Cell]) -> ()))
   {
-  }
+    Service.shared.fetchLoginForm{(formResult, err) in
+               if let err = err {
+                   print("Failed to fetch form:", err)
+                   return
+               }
+        success(formResult)
+           }
+  } 
 }
