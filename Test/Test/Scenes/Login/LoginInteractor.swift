@@ -39,7 +39,6 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore
         let userAccount = loginResponse.userAccount
         let response = Login.Something.Response(id: userAccount.userId!, name: userAccount.name!, agency: userAccount.agency!, account: userAccount.bankAccount!, balance: userAccount.balance!)
         self.presenter?.presentSomething(response: response)
-        
     }
   }
 }

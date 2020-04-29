@@ -25,6 +25,7 @@
 		8CAB75AD2459A08E00205C90 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75AC2459A08E00205C90 /* Networking.swift */; };
 		8CAB75AF2459A87D00205C90 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75AE2459A87D00205C90 /* LoginResponse.swift */; };
 		8CAB75B12459A92500205C90 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75B02459A92500205C90 /* Error.swift */; };
+		8CAB75B42459F6FE00205C90 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75B32459F6FE00205C90 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		8CAB75AC2459A08E00205C90 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8CAB75AE2459A87D00205C90 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		8CAB75B02459A92500205C90 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8CAB75B32459F6FE00205C90 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		8CAB757324599CC300205C90 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				8CAB75B22459F6EA00205C90 /* Common */,
 				8CAB759D24599DB600205C90 /* Models */,
 				8CAB759C24599DA300205C90 /* Services */,
 				8CAB759924599CEE00205C90 /* Scenes */,
@@ -170,6 +173,14 @@
 				8CAB75B02459A92500205C90 /* Error.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8CAB75B22459F6EA00205C90 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB75B32459F6FE00205C90 /* String+Extensions.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +294,7 @@
 				8CAB757724599CC300205C90 /* SceneDelegate.swift in Sources */,
 				8CAB75A424599E6800205C90 /* LoginPresenter.swift in Sources */,
 				8CAB75A624599E6800205C90 /* LoginRouter.swift in Sources */,
+				8CAB75B42459F6FE00205C90 /* String+Extensions.swift in Sources */,
 				8CAB75A924599E6800205C90 /* LoginInteractor.swift in Sources */,
 				8CAB75A524599E6800205C90 /* LoginWorker.swift in Sources */,
 				8CAB75B12459A92500205C90 /* Error.swift in Sources */,

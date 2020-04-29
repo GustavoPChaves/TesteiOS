@@ -93,12 +93,14 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         userTextField.placeholder = "User"
         userTextField.autocapitalizationType = .none
         userTextField.borderStyle = .roundedRect
+
         userTextField.delegate = self
    
         passwordTextField = UITextField()
         passwordTextField.placeholder = "Password"
         passwordTextField.autocapitalizationType = .none
         passwordTextField.borderStyle = .roundedRect
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.delegate = self
 
         loginButton = UIButton()
@@ -163,5 +165,13 @@ extension LoginViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
         return false
     }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == userTextField{
+            guard let text = textField.text, !text.isEmpty else { return }
+            if text.first?.isNumber ?? false{
+                textField.text = String.cpfMask(text: text)
+            }
+        }
+    }
 }
-
