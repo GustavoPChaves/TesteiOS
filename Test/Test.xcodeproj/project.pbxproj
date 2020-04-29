@@ -15,6 +15,12 @@
 		8CAB758124599CC700205C90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB758024599CC700205C90 /* Assets.xcassets */; };
 		8CAB758424599CC700205C90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB758224599CC700205C90 /* LaunchScreen.storyboard */; };
 		8CAB758F24599CC800205C90 /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB758E24599CC800205C90 /* TestTests.swift */; };
+		8CAB75A424599E6800205C90 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB759E24599E6800205C90 /* LoginPresenter.swift */; };
+		8CAB75A524599E6800205C90 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB759F24599E6800205C90 /* LoginWorker.swift */; };
+		8CAB75A624599E6800205C90 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75A024599E6800205C90 /* LoginRouter.swift */; };
+		8CAB75A724599E6800205C90 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75A124599E6800205C90 /* LoginModels.swift */; };
+		8CAB75A824599E6800205C90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75A224599E6800205C90 /* LoginViewController.swift */; };
+		8CAB75A924599E6800205C90 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75A324599E6800205C90 /* LoginInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,12 @@
 		8CAB758A24599CC800205C90 /* TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAB758E24599CC800205C90 /* TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTests.swift; sourceTree = "<group>"; };
 		8CAB759024599CC800205C90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CAB759E24599E6800205C90 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		8CAB759F24599E6800205C90 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		8CAB75A024599E6800205C90 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		8CAB75A124599E6800205C90 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		8CAB75A224599E6800205C90 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8CAB75A324599E6800205C90 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,12 @@
 		8CAB759A24599D0100205C90 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				8CAB759E24599E6800205C90 /* LoginPresenter.swift */,
+				8CAB759F24599E6800205C90 /* LoginWorker.swift */,
+				8CAB75A024599E6800205C90 /* LoginRouter.swift */,
+				8CAB75A124599E6800205C90 /* LoginModels.swift */,
+				8CAB75A224599E6800205C90 /* LoginViewController.swift */,
+				8CAB75A324599E6800205C90 /* LoginInteractor.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -243,10 +261,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CAB75A824599E6800205C90 /* LoginViewController.swift in Sources */,
 				8CAB757924599CC300205C90 /* ViewController.swift in Sources */,
+				8CAB75A724599E6800205C90 /* LoginModels.swift in Sources */,
 				8CAB757F24599CC300205C90 /* Test.xcdatamodeld in Sources */,
 				8CAB757524599CC300205C90 /* AppDelegate.swift in Sources */,
 				8CAB757724599CC300205C90 /* SceneDelegate.swift in Sources */,
+				8CAB75A424599E6800205C90 /* LoginPresenter.swift in Sources */,
+				8CAB75A624599E6800205C90 /* LoginRouter.swift in Sources */,
+				8CAB75A924599E6800205C90 /* LoginInteractor.swift in Sources */,
+				8CAB75A524599E6800205C90 /* LoginWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
