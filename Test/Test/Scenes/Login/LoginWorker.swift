@@ -14,7 +14,8 @@ import UIKit
 
 class LoginWorker
 {
-  func doSomeWork()
-  {
-  }
+    func doLogin(user: String, password: String, completion: @escaping (LoginResponse) -> ())
+    {
+        Networking.shared.doLogin(user: user, password: password, completion: completion)
+    }
 }

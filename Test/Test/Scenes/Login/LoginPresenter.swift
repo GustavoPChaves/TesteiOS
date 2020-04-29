@@ -25,7 +25,7 @@ class LoginPresenter: LoginPresentationLogic
   
   func presentSomething(response: Login.Something.Response)
   {
-    let viewModel = Login.Something.ViewModel()
+    let viewModel = Login.Something.ViewModel(id: response.id, name: response.name, agency: response.agency, account: response.account, balance: response.balance)
     viewController?.displaySomething(viewModel: viewModel)
   }
 }

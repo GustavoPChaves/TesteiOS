@@ -20,12 +20,24 @@ enum Login
   {
     struct Request
     {
+        var user: String
+        var password: String
     }
     struct Response
     {
+        var id: Int
+        var name: String
+        var agency: String
+        var account: String
+        var balance: Float
     }
     struct ViewModel
     {
+        var id: Int
+        var name: String
+        var agency: String
+        var account: String
+        var balance: Float
     }
   }
 }

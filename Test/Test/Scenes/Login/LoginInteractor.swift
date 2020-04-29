@@ -32,10 +32,14 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore
   
   func doSomething(request: Login.Something.Request)
   {
+    let user = request.user
+    let password = request.password
     worker = LoginWorker()
-    worker?.doSomeWork()
-    
-    let response = Login.Something.Response()
-    presenter?.presentSomething(response: response)
+    worker?.doLogin(user: user, password: password){ loginResponse in
+        let userAccount = loginResponse.userAccount
+        let response = Login.Something.Response(id: userAccount.userId!, name: userAccount.name!, agency: userAccount.agency!, account: userAccount.bankAccount!, balance: userAccount.balance!)
+        self.presenter?.presentSomething(response: response)
+        
+    }
   }
 }

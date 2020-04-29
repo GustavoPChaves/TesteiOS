@@ -69,21 +69,99 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    doSomething()
+    //doLogin()
+    setupView()
+    
   }
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
+    var bankImage: UIImageView!
+    var userTextField: UITextField!
+    var passwordTextField: UITextField!
+    var loginButton: UIButton!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func setupView(){
+        
+        bankImage = UIImageView(image: UIImage(named: "Logo"))
+        
+        userTextField = UITextField()
+        userTextField.placeholder = "User"
+        userTextField.autocapitalizationType = .none
+        userTextField.borderStyle = .roundedRect
+        userTextField.delegate = self
+   
+        passwordTextField = UITextField()
+        passwordTextField.placeholder = "Password"
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.delegate = self
+
+        loginButton = UIButton()
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.backgroundColor = UIColor(red: 59/255, green: 72/255, blue: 238/255, alpha: 1)
+        loginButton.addTarget(self, action: #selector(doLogin), for: .touchUpInside)
+        loginButton.layer.cornerRadius = 4
+        
+        
+        view.addSubview(bankImage)
+        view.addSubview(userTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(loginButton)
+
+        setupConstraints()
+    }
+    func setupConstraints(){
+        bankImage.translatesAutoresizingMaskIntoConstraints = false
+        bankImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 56).isActive = true
+        bankImage.widthAnchor.constraint(equalToConstant: 125).isActive = true
+        bankImage.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        bankImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        userTextField.translatesAutoresizingMaskIntoConstraints = false
+        userTextField.topAnchor.constraint(equalTo: bankImage.bottomAnchor, constant: 110).isActive = true
+        userTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        userTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        userTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        userTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.topAnchor.constraint(equalTo: userTextField.bottomAnchor, constant: 20).isActive = true
+        passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        
+        
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.topAnchor.constraint(greaterThanOrEqualTo: passwordTextField.bottomAnchor).isActive = true
+        loginButton.widthAnchor.constraint(equalToConstant: 202).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 62).isActive = true
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        
+        loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
+    }
+  @objc func doLogin()
   {
-    let request = Login.Something.Request()
+    let request = Login.Something.Request(user: userTextField.text!, password: passwordTextField.text!)
     interactor?.doSomething(request: request)
   }
+    //(user: "test_user", password: "Test@1")
   
   func displaySomething(viewModel: Login.Something.ViewModel)
   {
     //nameTextField.text = viewModel.name
+    print(viewModel)
   }
 }
+
+extension LoginViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+}
+
