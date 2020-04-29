@@ -15,6 +15,7 @@ import UIKit
 protocol LoginBusinessLogic
 {
   func doSomething(request: Login.Something.Request)
+  func getLoginStoredData()
 }
 
 protocol LoginDataStore
@@ -36,11 +37,36 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore
   {
     let user = request.user
     let password = request.password
+    if !password.isValid(.password){
+        self.presenter?.presentError(error: Login.Something.Error(code: nil, message: "Senha muito simples!"))
+        return
+    }
+    if !user.isValid(.email) && !user.isValid(.cpf){
+        self.presenter?.presentError(error: Login.Something.Error(code: nil, message: "Utilize CPF ou Email para Login"))
+        return
+    }
     worker = LoginWorker()
     worker?.doLogin(user: user, password: password){ loginResponse in
-        let userAccount = loginResponse.userAccount
+        if let error = loginResponse.error {
+            self.presenter?.presentError(error: Login.Something.Error(code: error.code, message: error.message ?? ""))
+            return
+        }
+        guard let userAccount = loginResponse.userAccount else {return}
         self.response = Login.Something.Response(id: userAccount.userId!, name: userAccount.name!, agency: userAccount.agency!, account: userAccount.bankAccount!, balance: userAccount.balance!)
         self.presenter?.presentSomething(response: self.response!)
+        KeychainHelper.save(key: "user", data: user)
+        KeychainHelper.save(key: "password", data: password)
+        }
+
     }
-  }
+    
+    func getLoginStoredData(){
+        let user = KeychainHelper.load(key: "user")
+        let password = KeychainHelper.load(key: "password")
+        
+        let loginData = Login.Something.LoginData(user: user?.toString() ?? "", password: password?.toString() ?? "")
+        presenter?.presentLoginData(loginData: loginData)
+        
+    }
 }
+

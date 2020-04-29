@@ -32,6 +32,7 @@
 		8CAB75BE2459F80000205C90 /* StatementsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75B82459F80000205C90 /* StatementsModels.swift */; };
 		8CAB75BF2459F80000205C90 /* StatementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75B92459F80000205C90 /* StatementsViewController.swift */; };
 		8CAB75C02459F80000205C90 /* StatementsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75BA2459F80000205C90 /* StatementsInteractor.swift */; };
+		8CAB75C2245A17F300205C90 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB75C1245A17F300205C90 /* KeychainHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		8CAB75B82459F80000205C90 /* StatementsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsModels.swift; sourceTree = "<group>"; };
 		8CAB75B92459F80000205C90 /* StatementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsViewController.swift; sourceTree = "<group>"; };
 		8CAB75BA2459F80000205C90 /* StatementsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementsInteractor.swift; sourceTree = "<group>"; };
+		8CAB75C1245A17F300205C90 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			children = (
 				8CAB75AA24599F1700205C90 /* EndPoints.swift */,
 				8CAB75AC2459A08E00205C90 /* Networking.swift */,
+				8CAB75C1245A17F300205C90 /* KeychainHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				8CAB757924599CC300205C90 /* ViewController.swift in Sources */,
 				8CAB75A724599E6800205C90 /* LoginModels.swift in Sources */,
 				8CAB75AD2459A08E00205C90 /* Networking.swift in Sources */,
+				8CAB75C2245A17F300205C90 /* KeychainHelper.swift in Sources */,
 				8CAB75BB2459F80000205C90 /* StatementsPresenter.swift in Sources */,
 				8CAB757F24599CC300205C90 /* Test.xcdatamodeld in Sources */,
 				8CAB757524599CC300205C90 /* AppDelegate.swift in Sources */,

@@ -10,8 +10,8 @@ import Foundation
 
 struct LoginResponse: Codable {
     
-    var userAccount: User
-    var error: Error
+    var userAccount: User?
+    var error: Error?
     
 }
 
@@ -24,3 +24,4 @@ struct User: Codable {
     var balance: Float?
     
 }
+

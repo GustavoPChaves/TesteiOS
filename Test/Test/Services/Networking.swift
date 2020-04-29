@@ -27,6 +27,8 @@ class Networking{
         }
         catch let error{
             print(error.localizedDescription)
+            let error =  Error(code: nil, message: error.localizedDescription)
+            completion(LoginResponse(userAccount: nil, error: error))
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -45,12 +47,15 @@ class Networking{
                do {
                    //create json object from data
                    //if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                       let response = try JSONDecoder().decode(LoginResponse.self, from: data)
-                        completion(response)
+                       var response = try JSONDecoder().decode(LoginResponse.self, from: data)
+                       response.error = nil
+                       completion(response)
                        // handle json...
                    //}
                } catch let error {
                    print(error.localizedDescription)
+                let error =  Error(code: nil, message: error.localizedDescription)
+                    completion(LoginResponse(userAccount: nil, error: error))
                }
            })
            task.resume()

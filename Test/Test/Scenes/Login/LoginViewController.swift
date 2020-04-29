@@ -15,6 +15,8 @@ import UIKit
 protocol LoginDisplayLogic: class
 {
   func displaySomething(viewModel: Login.Something.ViewModel)
+    func  displayError(error: Login.Something.Error)
+    func displayUserLogin(loginData: Login.Something.LoginData)
 }
 
 class LoginViewController: UIViewController, LoginDisplayLogic
@@ -71,6 +73,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     super.viewDidLoad()
     //doLogin()
     setupView()
+    interactor?.getLoginStoredData()
     
   }
   
@@ -80,10 +83,12 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     var bankImage: UIImageView!
     var userTextField: UITextField!
     var passwordTextField: UITextField!
+    var errorLabel: UILabel!
     var loginButton: UIButton!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        
     }
     func setupView(){
         
@@ -109,11 +114,15 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         loginButton.addTarget(self, action: #selector(doLogin), for: .touchUpInside)
         loginButton.layer.cornerRadius = 4
         
+        errorLabel = UILabel()
+        errorLabel.textColor = .red
+        errorLabel.isHidden = true
         
         view.addSubview(bankImage)
         view.addSubview(userTextField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
+        view.addSubview(errorLabel)
 
         setupConstraints()
     }
@@ -123,6 +132,12 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         bankImage.widthAnchor.constraint(equalToConstant: 125).isActive = true
         bankImage.heightAnchor.constraint(equalToConstant: 70).isActive = true
         bankImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.topAnchor.constraint(equalTo: bankImage.bottomAnchor, constant: 8).isActive = true
+        errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        errorLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
+        
         userTextField.translatesAutoresizingMaskIntoConstraints = false
         userTextField.topAnchor.constraint(equalTo: bankImage.bottomAnchor, constant: 110).isActive = true
         userTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
@@ -143,7 +158,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         loginButton.widthAnchor.constraint(equalToConstant: 202).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 62).isActive = true
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        
         loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
     }
   @objc func doLogin()
@@ -152,12 +166,26 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     interactor?.doSomething(request: request)
   }
     //(user: "test_user", password: "Test@1")
-  
+    func displayUserLogin(loginData: Login.Something.LoginData){
+        userTextField.text = loginData.user
+        passwordTextField.text = loginData.password
+    }
   func displaySomething(viewModel: Login.Something.ViewModel)
   {
     //nameTextField.text = viewModel.name
+    print(viewModel)
     router?.routeToStatements(segue: nil)
   }
+    
+    
+    func displayError(error: Login.Something.Error){
+        print(error.message)
+        DispatchQueue.main.async {
+            
+            self.errorLabel.text = error.message
+            self.errorLabel.isHidden = false
+        }
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate{

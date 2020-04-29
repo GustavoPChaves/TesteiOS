@@ -39,5 +39,13 @@ enum Login
         var account: String
         var balance: Float
     }
+    struct LoginData{
+        var user: String
+        var password: String
+    }
+    struct Error{
+        var code: Int?
+        var message: String
+    }
   }
 }
