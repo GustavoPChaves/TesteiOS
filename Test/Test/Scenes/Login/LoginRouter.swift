@@ -14,7 +14,7 @@ import UIKit
 
 @objc protocol LoginRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToStatements(segue: UIStoryboardSegue?)
 }
 
 protocol LoginDataPassing
@@ -29,32 +29,46 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+  func routeToStatements(segue: UIStoryboardSegue?)
+  {
+    if let segue = segue {
+      let destinationVC = segue.destination as! StatementsViewController
+      var destinationDS = destinationVC.router!.dataStore!
+      passDataToStatements(source: dataStore!, destination: &destinationDS)
+    } else {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let destinationVC = storyboard.instantiateViewController(withIdentifier: "StatementsViewController") as! StatementsViewController
+       
+        
+            //self.viewController?.present(destinationVC, animated: true, completion: {
+                var destinationDS = destinationVC.router!.dataStore!
+                self.passDataToStatements(source: self.dataStore!, destination: &destinationDS)
+                self.navigateToStatements(source: self.viewController!, destination: destinationVC)
+
+
+
+            
+        }
+        
+          
+  }
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: LoginViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToStatements(source: LoginViewController, destination: StatementsViewController)
+  {
+    DispatchQueue.main.async {
+        destination.modalPresentationStyle = .custom
+        source.show(destination, sender: nil)
+    }
+  }
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: LoginDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+  func passDataToStatements(source: LoginDataStore, destination: inout StatementsDataStore)
+  {
+    //destination.name = source.name
+     guard let response = source.response else { return }
+    destination.userData = User(userId: response.id, name:  response.name, bankAccount: response.account, agency: response.agency, balance: response.balance)
+  }
 }

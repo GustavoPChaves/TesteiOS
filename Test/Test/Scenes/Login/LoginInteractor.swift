@@ -20,14 +20,16 @@ protocol LoginBusinessLogic
 protocol LoginDataStore
 {
   //var name: String { get set }
+    var response: Login.Something.Response? {get}
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore
 {
+    
   var presenter: LoginPresentationLogic?
   var worker: LoginWorker?
   //var name: String = ""
-  
+  var response: Login.Something.Response?
   // MARK: Do something
   
   func doSomething(request: Login.Something.Request)
@@ -37,8 +39,8 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore
     worker = LoginWorker()
     worker?.doLogin(user: user, password: password){ loginResponse in
         let userAccount = loginResponse.userAccount
-        let response = Login.Something.Response(id: userAccount.userId!, name: userAccount.name!, agency: userAccount.agency!, account: userAccount.bankAccount!, balance: userAccount.balance!)
-        self.presenter?.presentSomething(response: response)
+        self.response = Login.Something.Response(id: userAccount.userId!, name: userAccount.name!, agency: userAccount.agency!, account: userAccount.bankAccount!, balance: userAccount.balance!)
+        self.presenter?.presentSomething(response: self.response!)
     }
   }
 }

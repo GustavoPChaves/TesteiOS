@@ -18,10 +18,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="hAg-jF-x7S" kind="custom" identifier="showStatements" id="9PK-Xr-3Pw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="90"/>
+        </scene>
+        <!--Statements View Controller-->
+        <scene sceneID="BXq-fO-OMk">
+            <objects>
+                <viewController storyboardIdentifier="StatementsViewController" id="hAg-jF-x7S" customClass="StatementsViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ynj-lJ-J7W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Auo-Jx-XPi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hxy-AW-R7z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfC-8U-LaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147" y="154"/>
         </scene>
     </scenes>
 </document>

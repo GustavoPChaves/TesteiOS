@@ -156,7 +156,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
   func displaySomething(viewModel: Login.Something.ViewModel)
   {
     //nameTextField.text = viewModel.name
-    print(viewModel)
+    router?.routeToStatements(segue: nil)
   }
 }
 
@@ -175,3 +175,4 @@ extension LoginViewController: UITextFieldDelegate{
         }
     }
 }
+
