@@ -38,7 +38,7 @@ class StatementViewCell: UITableViewCell {
         background = UIView()
         background.layer.cornerRadius = 4
         background.backgroundColor = .white
-        background.layer.borderColor = UIColor(red: 219/255, green: 223/255, blue: 227/255, alpha: 0.3).cgColor
+        background.layer.borderColor = UIColor.borderColor.cgColor
         background.layer.borderWidth = 1
         background.addShadow(offset: CGSize(width: 0, height: 5), color: UIColor(red: 217/255, green: 226/255, blue: 233/255, alpha: 1), radius: 12.0, opacity: 0.5)
         addSubview(background)

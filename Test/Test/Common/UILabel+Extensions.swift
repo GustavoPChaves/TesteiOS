@@ -15,6 +15,4 @@ extension UILabel{
         self.textColor = color
         self.text = text ?? ""
     }
-
-
 }

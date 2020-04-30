@@ -12,6 +12,7 @@
 		8C67A3CB245A5FB00070F10C /* Float+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67A3CA245A5FB00070F10C /* Float+Extensions.swift */; };
 		8C74429B245A8CF0004609CA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74429A245A8CF0004609CA /* UIView+Extensions.swift */; };
 		8C74429D245B1049004609CA /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74429C245B1049004609CA /* UILabel+Extensions.swift */; };
+		8C7442A0245B17BB004609CA /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74429F245B17BB004609CA /* UIColor+Extensions.swift */; };
 		8CAB757524599CC300205C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB757424599CC300205C90 /* AppDelegate.swift */; };
 		8CAB757724599CC300205C90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB757624599CC300205C90 /* SceneDelegate.swift */; };
 		8CAB757924599CC300205C90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB757824599CC300205C90 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		8C67A3CA245A5FB00070F10C /* Float+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Extensions.swift"; sourceTree = "<group>"; };
 		8C74429A245A8CF0004609CA /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		8C74429C245B1049004609CA /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		8C74429F245B17BB004609CA /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		8CAB757124599CC300205C90 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAB757424599CC300205C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CAB757624599CC300205C90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				8C67A3CA245A5FB00070F10C /* Float+Extensions.swift */,
 				8C74429A245A8CF0004609CA /* UIView+Extensions.swift */,
 				8C74429C245B1049004609CA /* UILabel+Extensions.swift */,
+				8C74429F245B17BB004609CA /* UIColor+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				8CAB75BB2459F80000205C90 /* StatementsPresenter.swift in Sources */,
 				8CAB757F24599CC300205C90 /* Test.xcdatamodeld in Sources */,
 				8CAB757524599CC300205C90 /* AppDelegate.swift in Sources */,
+				8C7442A0245B17BB004609CA /* UIColor+Extensions.swift in Sources */,
 				8CAB75BF2459F80000205C90 /* StatementsViewController.swift in Sources */,
 				8CAB75AF2459A87D00205C90 /* LoginResponse.swift in Sources */,
 				8CAB757724599CC300205C90 /* SceneDelegate.swift in Sources */,
