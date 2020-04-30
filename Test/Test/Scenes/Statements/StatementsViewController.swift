@@ -127,6 +127,7 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         
         exitButton = UIButton()
         exitButton.setImage(UIImage(named: "logout"), for: .normal)
+        exitButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
         view.addSubview(exitButton)
         
         recent = UILabel()
@@ -140,9 +141,13 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         view.addSubview(tableView)
         
         setupLayout()
+    }
+    @objc func logout(){
+        dismiss(animated: true, completion: nil)
     }
     func setupLayout(){
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
