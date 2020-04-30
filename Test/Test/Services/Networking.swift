@@ -60,5 +60,30 @@ class Networking{
            })
            task.resume()
     }
+    
+    func getUserStatements(userId: Int, completion: @escaping (StatementResponse) -> ()){
+        let path = Endpoints.Statements.getStatements(userId).path
+        guard let url = URL(string: path) else {return}
+        
+        URLSession.shared.dataTask(with: url){ (data, resp, err) in
+            if let err = err{
+                print("Failed to fetch apps:", err)
+                completion(StatementResponse(statementList: [], error: Error(code: nil, message: err.localizedDescription)))
+                return
+            }
+            guard let data = data else {return}
+            
+            do{
+                let response = try JSONDecoder().decode(StatementResponse.self, from: data)
+            
+                completion(response)
+                
+            }catch let jsonErr{
+                print("Failed to decode json:", jsonErr)
+                completion(StatementResponse(statementList: [], error: Error(code: nil, message: jsonErr.localizedDescription)))
+            }
+            
+        }.resume()
+    }
 
 }

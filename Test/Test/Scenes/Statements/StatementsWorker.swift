@@ -14,7 +14,8 @@ import UIKit
 
 class StatementsWorker
 {
-  func doSomeWork()
+    func getStatements()
   {
+    
   }
 }

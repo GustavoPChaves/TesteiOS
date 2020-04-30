@@ -16,16 +16,40 @@ enum Statements
 {
   // MARK: Use cases
   
-  enum Something
+  enum UserData
   {
     struct Request
     {
     }
     struct Response
     {
+        var userId: Int
+          var userName: String
+          var userAccount: String
+          var userAgency: String
+          var userBalance: Float
     }
     struct ViewModel
     {
+        var userName: String
+        var userAccount: String
+        var userAgency: String
+        var userBalance: String
     }
   }
+    enum UserStatements{
+        struct Request
+        {
+            var userId: Int
+        }
+        struct Response {
+            var transaction: String
+            var date: String
+            var description: String
+            var value: String
+        }
+        struct ViewModel{
+            
+        }
+    }
 }

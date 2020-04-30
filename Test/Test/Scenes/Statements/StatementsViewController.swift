@@ -14,7 +14,7 @@ import UIKit
 
 protocol StatementsDisplayLogic: class
 {
-  func displaySomething(viewModel: Statements.Something.ViewModel)
+  func displayUser(viewModel: Statements.UserData.ViewModel)
 }
 
 class StatementsViewController: UIViewController, StatementsDisplayLogic
@@ -69,6 +69,7 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    setupView()
     doSomething()
     
   }
@@ -77,15 +78,96 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
+    var userLabel: UILabel!
+    var accountLabel: UILabel!
+    var accountAgencyLabel: UILabel!
+    var balanceLabel: UILabel!
+    var balanceValueLabel: UILabel!
+    var backgroundView: UIView!
+    
+    func setupView(){
+        backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red: 59/255, green: 73/255, blue: 238/255, alpha: 1)
+        view.addSubview(backgroundView)
+        
+        userLabel = UILabel()
+        userLabel.textColor = .white
+        userLabel.font = userLabel.font.withSize(25)
+        view.addSubview(userLabel)
+        
+        accountLabel = UILabel()
+        accountLabel.text = "Conta"
+        accountLabel.font = accountLabel.font.withSize(12)
+        accountLabel.textColor = .white
+        view.addSubview(accountLabel)
+        
+        accountAgencyLabel = UILabel()
+        accountAgencyLabel.textColor = .white
+        accountAgencyLabel.font = accountAgencyLabel.font.withSize(25)
+        view.addSubview(accountAgencyLabel)
+        
+        balanceValueLabel = UILabel()
+        balanceValueLabel.textColor = .white
+        balanceValueLabel.font = balanceValueLabel.font.withSize(25)
+        view.addSubview(balanceValueLabel)
+        
+        balanceLabel = UILabel()
+        balanceLabel.text = "Saldo"
+        balanceLabel.font = balanceLabel.font.withSize(12)
+        balanceLabel.textColor = .white
+        view.addSubview(balanceLabel)
+        
+        
+        
+        setupLayout()
+    }
+    func setupLayout(){
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        userLabel.translatesAutoresizingMaskIntoConstraints = false
+        userLabel.heightAnchor.constraint(equalToConstant: 29).isActive = true
+        userLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        userLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        
+        
+        accountLabel.translatesAutoresizingMaskIntoConstraints = false
+        accountLabel.heightAnchor.constraint(equalToConstant: 13).isActive = true
+        accountLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor, constant: 28).isActive = true
+        accountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        
+        accountAgencyLabel.translatesAutoresizingMaskIntoConstraints = false
+        accountAgencyLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 6).isActive = true
+        accountAgencyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        accountAgencyLabel.heightAnchor.constraint(equalToConstant: 29).isActive = true
+        
+        balanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        balanceLabel.heightAnchor.constraint(equalToConstant: 13).isActive = true
+        balanceLabel.topAnchor.constraint(equalTo: accountAgencyLabel.bottomAnchor, constant: 21).isActive = true
+        balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        
+        balanceValueLabel.translatesAutoresizingMaskIntoConstraints = false
+        balanceValueLabel.heightAnchor.constraint(equalToConstant: 29).isActive = true
+        balanceValueLabel.topAnchor.constraint(equalTo: balanceLabel.bottomAnchor, constant: 6).isActive = true
+        balanceValueLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        
+        backgroundView.bottomAnchor.constraint(equalTo: balanceValueLabel.bottomAnchor, constant: 16).isActive = true
+        
+    }
   
   func doSomething()
   {
-    let request = Statements.Something.Request()
+    let request = Statements.UserData.Request()
     interactor?.doSomething(request: request)
   }
   
-  func displaySomething(viewModel: Statements.Something.ViewModel)
+  func displayUser(viewModel: Statements.UserData.ViewModel)
   {
     //nameTextField.text = viewModel.name
+    userLabel.text = viewModel.userName
+    balanceValueLabel.text = "\(viewModel.userBalance)"
+    accountAgencyLabel.text = "\(viewModel.userAccount) / \(viewModel.userAgency)"
   }
 }

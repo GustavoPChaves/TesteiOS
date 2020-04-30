@@ -36,21 +36,12 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing
       var destinationDS = destinationVC.router!.dataStore!
       passDataToStatements(source: dataStore!, destination: &destinationDS)
     } else {
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let destinationVC = storyboard.instantiateViewController(withIdentifier: "StatementsViewController") as! StatementsViewController
-       
-        
-            //self.viewController?.present(destinationVC, animated: true, completion: {
-                var destinationDS = destinationVC.router!.dataStore!
-                self.passDataToStatements(source: self.dataStore!, destination: &destinationDS)
-                self.navigateToStatements(source: self.viewController!, destination: destinationVC)
-
-
-
-            
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "StatementsViewController") as! StatementsViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        self.passDataToStatements(source: self.dataStore!, destination: &destinationDS)
+        self.navigateToStatements(source: self.viewController!, destination: destinationVC)
         }
-        
-          
   }
 
   // MARK: Navigation

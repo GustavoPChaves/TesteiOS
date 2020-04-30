@@ -14,7 +14,7 @@ import UIKit
 
 protocol StatementsBusinessLogic
 {
-  func doSomething(request: Statements.Something.Request)
+  func doSomething(request: Statements.UserData.Request)
 }
 
 protocol StatementsDataStore
@@ -33,12 +33,20 @@ class StatementsInteractor: StatementsBusinessLogic, StatementsDataStore
   
   // MARK: Do something
   
-  func doSomething(request: Statements.Something.Request)
+  func doSomething(request: Statements.UserData.Request)
   {
-    worker = StatementsWorker()
-    worker?.doSomeWork()
+    //worker = StatementsWorker()
+    //worker?.getStatements()
     
-    let response = Statements.Something.Response()
-    presenter?.presentSomething(response: response)
+    let response = Statements.UserData.Response(userId: userData.userId!, userName: userData.name!, userAccount: userData.bankAccount!, userAgency: userData.agency!, userBalance: userData.balance!)
+    presenter?.presentUser(response: response)
   }
+    
+    func getStatements(){
+        worker = StatementsWorker()
+        worker?.getStatements()
+        
+//        let response = Statements.UserStatements.Response(transaction: <#T##String#>, date: <#T##String#>, description: <#T##String#>, value: <#T##String#>)
+//        presenter?.presentSomething(response: response)
+    }
 }
