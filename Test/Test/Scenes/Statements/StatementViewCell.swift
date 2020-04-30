@@ -38,25 +38,25 @@ class StatementViewCell: UITableViewCell {
         background = UIView()
         background.layer.cornerRadius = 4
         background.backgroundColor = .white
+        background.layer.borderColor = UIColor(red: 219/255, green: 223/255, blue: 227/255, alpha: 0.3).cgColor
+        background.layer.borderWidth = 1
         background.addShadow(offset: CGSize(width: 0, height: 5), color: UIColor(red: 217/255, green: 226/255, blue: 233/255, alpha: 1), radius: 12.0, opacity: 0.5)
         addSubview(background)
         
         transactionLabel = UILabel()
-        transactionLabel.font = transactionLabel.font.withSize(16)
-        transactionLabel.textColor = .lightGray
+        transactionLabel.setup(text: nil, color: .lightGray, fontSize: 16)
         addSubview(transactionLabel)
         
         dateLabel = UILabel()
-        dateLabel.font = dateLabel.font.withSize(12)
-        dateLabel.textColor = .lightGray
+        dateLabel.setup(text: nil, color: .lightGray, fontSize: 12)
         addSubview(dateLabel)
         
         descriptionLabel = UILabel()
-        descriptionLabel.font = descriptionLabel.font.withSize(16)
+        descriptionLabel.setup(text: nil, color: .black, fontSize: 16)
         addSubview(descriptionLabel)
         
         valueLabel = UILabel()
-        valueLabel.font = valueLabel.font.withSize(20)
+        valueLabel.setup(text: nil, color: .black, fontSize: 20)
         addSubview(valueLabel)
         
 
@@ -72,21 +72,19 @@ class StatementViewCell: UITableViewCell {
         
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
-        dateLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -4).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -20).isActive = true
 
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
-        valueLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -8).isActive = true
-        valueLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -4).isActive = true
+        valueLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -15).isActive = true
+        valueLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -16).isActive = true
 
         transactionLabel.translatesAutoresizingMaskIntoConstraints = false
         transactionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
-        transactionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        transactionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 13).isActive = true
 
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -8).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        
-
+        descriptionLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -15).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 13).isActive = true
     }
 
     

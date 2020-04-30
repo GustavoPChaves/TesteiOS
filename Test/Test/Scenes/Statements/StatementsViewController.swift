@@ -99,30 +99,35 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         view.addSubview(backgroundView)
         
         userLabel = UILabel()
-        userLabel.textColor = .white
-        userLabel.font = userLabel.font.withSize(25)
+        userLabel.setup(text: nil, color: .white, fontSize: 25)
+//        userLabel.textColor = .white
+//        userLabel.font = userLabel.font.withSize(25)
         view.addSubview(userLabel)
         
         accountLabel = UILabel()
-        accountLabel.text = "Conta"
-        accountLabel.font = accountLabel.font.withSize(12)
-        accountLabel.textColor = .white
+        accountLabel.setup(text: "Conta", color: .white, fontSize: 12)
+//        accountLabel.text = "Conta"
+//        accountLabel.font = accountLabel.font.withSize(12)
+//        accountLabel.textColor = .white
         view.addSubview(accountLabel)
         
         accountAgencyLabel = UILabel()
-        accountAgencyLabel.textColor = .white
-        accountAgencyLabel.font = accountAgencyLabel.font.withSize(25)
+        accountAgencyLabel.setup(text: nil, color: .white, fontSize: 25)
+//        accountAgencyLabel.textColor = .white
+//        accountAgencyLabel.font = accountAgencyLabel.font.withSize(25)
         view.addSubview(accountAgencyLabel)
         
         balanceValueLabel = UILabel()
-        balanceValueLabel.textColor = .white
-        balanceValueLabel.font = balanceValueLabel.font.withSize(25)
+        balanceValueLabel.setup(text: nil, color: .white, fontSize: 25)
+//        balanceValueLabel.textColor = .white
+//        balanceValueLabel.font = balanceValueLabel.font.withSize(25)
         view.addSubview(balanceValueLabel)
         
         balanceLabel = UILabel()
-        balanceLabel.text = "Saldo"
-        balanceLabel.font = balanceLabel.font.withSize(12)
-        balanceLabel.textColor = .white
+        balanceLabel.setup(text: "Saldo", color: .white, fontSize: 12)
+//        balanceLabel.text = "Saldo"
+//        balanceLabel.font = balanceLabel.font.withSize(12)
+//        balanceLabel.textColor = .white
         view.addSubview(balanceLabel)
         
         exitButton = UIButton()
@@ -131,9 +136,10 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         view.addSubview(exitButton)
         
         recent = UILabel()
-        recent.text = "Recentes"
-        recent.font = recent.font.withSize(17)
-        recent.textColor = UIColor(red: 72/255, green: 84/255, blue: 101/255, alpha: 1)
+        recent.setup(text: "Recentes", color: UIColor(red: 72/255, green: 84/255, blue: 101/255, alpha: 1), fontSize: 17)
+//        recent.text = "Recentes"
+//        recent.font = recent.font.withSize(17)
+//        recent.textColor =
         view.addSubview(recent)
         
         tableView = UITableView()
