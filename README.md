@@ -1,3 +1,6 @@
+# Anotações
+- O projeto não possui dependências, basta executar.
+
 # Show me the code
 
 Esse repositório contem todo o material necessário para realizar o teste: 

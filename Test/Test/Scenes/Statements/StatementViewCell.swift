@@ -59,7 +59,7 @@ class StatementViewCell: UITableViewCell {
         valueLabel.setup(text: nil, color: .black, fontSize: 20)
         addSubview(valueLabel)
         
-
+        
         setupLayout()
     }
     
@@ -73,19 +73,19 @@ class StatementViewCell: UITableViewCell {
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         dateLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -20).isActive = true
-
+        
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         valueLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -15).isActive = true
         valueLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -16).isActive = true
-
+        
         transactionLabel.translatesAutoresizingMaskIntoConstraints = false
         transactionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         transactionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 13).isActive = true
-
+        
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -15).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 13).isActive = true
     }
-
+    
     
 }

@@ -14,72 +14,72 @@ import UIKit
 
 protocol LoginDisplayLogic: class
 {
-  func displaySomething(viewModel: Login.Something.ViewModel)
+    func displaySomething(viewModel: Login.Something.ViewModel)
     func  displayError(error: Login.Something.Error)
     func displayUserLogin(loginData: Login.Something.LoginData)
 }
 
 class LoginViewController: UIViewController, LoginDisplayLogic
 {
-  var interactor: LoginBusinessLogic?
-  var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = LoginInteractor()
-    let presenter = LoginPresenter()
-    let router = LoginRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    //doLogin()
-    setupView()
-    interactor?.getLoginStoredData()
+    var interactor: LoginBusinessLogic?
+    var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
     
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = LoginInteractor()
+        let presenter = LoginPresenter()
+        let router = LoginRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        //doLogin()
+        setupView()
+        interactor?.getLoginStoredData()
+        
+    }
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
     var bankImage: UIImageView!
     var userTextField: UITextField!
     var passwordTextField: UITextField!
@@ -98,16 +98,16 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         userTextField.placeholder = "User"
         userTextField.autocapitalizationType = .none
         userTextField.borderStyle = .roundedRect
-
+        
         userTextField.delegate = self
-   
+        
         passwordTextField = UITextField()
         passwordTextField.placeholder = "Password"
         passwordTextField.autocapitalizationType = .none
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.isSecureTextEntry = true
         passwordTextField.delegate = self
-
+        
         loginButton = UIButton()
         loginButton.setTitle("Login", for: .normal)
         loginButton.backgroundColor = UIColor.loginButton
@@ -124,7 +124,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
         view.addSubview(errorLabel)
-
+        
         setupConstraints()
     }
     func setupConstraints(){
@@ -161,22 +161,21 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
     }
-  @objc func doLogin()
-  {
-    let request = Login.Something.Request(user: userTextField.text!, password: passwordTextField.text!)
-    interactor?.doSomething(request: request)
-  }
-    //(user: "test_user", password: "Test@1")
+    @objc func doLogin()
+    {
+        let request = Login.Something.Request(user: userTextField.text!, password: passwordTextField.text!)
+        interactor?.doSomething(request: request)
+    }
+    
     func displayUserLogin(loginData: Login.Something.LoginData){
         userTextField.text = loginData.user
         passwordTextField.text = loginData.password
     }
-  func displaySomething(viewModel: Login.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-    print(viewModel)
-    router?.routeToStatements(segue: nil)
-  }
+    func displaySomething(viewModel: Login.Something.ViewModel)
+    {
+        print(viewModel)
+        router?.routeToStatements(segue: nil)
+    }
     
     
     func displayError(error: Login.Something.Error){

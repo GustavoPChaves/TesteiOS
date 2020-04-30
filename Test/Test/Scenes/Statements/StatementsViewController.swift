@@ -14,71 +14,71 @@ import UIKit
 
 protocol StatementsDisplayLogic: class
 {
-  func displayUser(viewModel: Statements.UserData.ViewModel)
+    func displayUser(viewModel: Statements.UserData.ViewModel)
     func displayStatements(viewModel: Statements.UserStatements.ViewModel)
 }
 
 class StatementsViewController: UIViewController, StatementsDisplayLogic
 {
-  var interactor: StatementsBusinessLogic?
-  var router: (NSObjectProtocol & StatementsRoutingLogic & StatementsDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = StatementsInteractor()
-    let presenter = StatementsPresenter()
-    let router = StatementsRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    setupView()
-    doSomething()
-    doUserStatements()
-  }
+    var interactor: StatementsBusinessLogic?
+    var router: (NSObjectProtocol & StatementsRoutingLogic & StatementsDataPassing)?
     
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = StatementsInteractor()
+        let presenter = StatementsPresenter()
+        let router = StatementsRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        setupView()
+        doSomething()
+        doUserStatements()
+    }
+    
+    
+    // MARK: Do something
+    
+    //@IBOutlet weak var nameTextField: UITextField!
     var userId = 0
     var userLabel: UILabel!
     var accountLabel: UILabel!
@@ -191,26 +191,26 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16).isActive = true
         
     }
-  
-  func doSomething()
-  {
-    let request = Statements.UserData.Request()
-    interactor?.doSomething(request: request)
-  }
+    
+    func doSomething()
+    {
+        let request = Statements.UserData.Request()
+        interactor?.doSomething(request: request)
+    }
     
     func doUserStatements(){
         let request = Statements.UserStatements.Request(userId: userId)
         interactor?.getStatements(request: request)
     }
-  
-  func displayUser(viewModel: Statements.UserData.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-    userLabel.text = viewModel.userName
-    balanceValueLabel.text = "\(viewModel.userBalance)"
-    accountAgencyLabel.text = "\(viewModel.userAccount) / \(viewModel.userAgency)"
-    userId = viewModel.userId
-  }
+    
+    func displayUser(viewModel: Statements.UserData.ViewModel)
+    {
+        //nameTextField.text = viewModel.name
+        userLabel.text = viewModel.userName
+        balanceValueLabel.text = "\(viewModel.userBalance)"
+        accountAgencyLabel.text = "\(viewModel.userAccount) / \(viewModel.userAgency)"
+        userId = viewModel.userId
+    }
     
     func displayStatements(viewModel: Statements.UserStatements.ViewModel){
         statements = viewModel.statements
@@ -224,15 +224,15 @@ extension StatementsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         statements.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! StatementViewCell
         cell.configure(model: statements[indexPath.row])
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 96
     }
-
+    
 }
