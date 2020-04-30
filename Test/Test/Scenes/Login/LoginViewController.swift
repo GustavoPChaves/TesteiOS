@@ -113,6 +113,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic
         loginButton.backgroundColor = UIColor(red: 59/255, green: 72/255, blue: 238/255, alpha: 1)
         loginButton.addTarget(self, action: #selector(doLogin), for: .touchUpInside)
         loginButton.layer.cornerRadius = 4
+        loginButton.addShadow(offset: CGSize(width: 0, height: 6), color: UIColor(red: 59/255, green: 72/255, blue: 238/255, alpha: 1), radius: 2.0, opacity: 0.3)
         
         errorLabel = UILabel()
         errorLabel.textColor = .red

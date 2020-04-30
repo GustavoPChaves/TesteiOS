@@ -139,6 +139,7 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         tableView.register(StatementViewCell.self, forCellReuseIdentifier: cellId)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         view.addSubview(tableView)
         
         setupLayout()
@@ -235,6 +236,7 @@ extension StatementsViewController: UITableViewDelegate, UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 96
     }
+
 }
