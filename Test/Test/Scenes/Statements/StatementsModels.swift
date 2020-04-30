@@ -35,6 +35,7 @@ enum Statements
         var userAccount: String
         var userAgency: String
         var userBalance: String
+        var userId: Int
     }
   }
     enum UserStatements{
@@ -43,13 +44,11 @@ enum Statements
             var userId: Int
         }
         struct Response {
-            var transaction: String
-            var date: String
-            var description: String
-            var value: String
+            var statements: [Statement]
         }
         struct ViewModel{
-            
+            var statements: [Statement]
         }
+
     }
 }

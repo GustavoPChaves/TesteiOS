@@ -14,8 +14,8 @@ import UIKit
 
 class StatementsWorker
 {
-    func getStatements()
+    func getStatements(userId: Int, completion: @escaping (StatementResponse)->())
   {
-    
+    Networking.shared.getUserStatements(userId: userId, completion: completion)
   }
 }

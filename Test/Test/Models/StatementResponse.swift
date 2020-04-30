@@ -11,7 +11,7 @@ import Foundation
 struct StatementResponse: Codable {
     
     var statementList: [Statement]
-    var error: Error
+    var error: Error?
     
 }
 

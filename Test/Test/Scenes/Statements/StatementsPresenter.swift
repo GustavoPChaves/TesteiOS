@@ -15,6 +15,7 @@ import UIKit
 protocol StatementsPresentationLogic
 {
   func presentUser(response: Statements.UserData.Response)
+    func presentStatement(response: Statements.UserStatements.Response)
 }
 
 class StatementsPresenter: StatementsPresentationLogic
@@ -29,7 +30,11 @@ class StatementsPresenter: StatementsPresentationLogic
     let balance = response.userBalance.formatToCurrency()//currencyFormatter.string(from: response.userBalance as NSNumber) ?? "\(response.userBalance)"
     
     let agency = response.userAgency.applyPatternOnNumbers(pattern: "##.######-#", replacmentCharacter: "#")
-    let viewModel = Statements.UserData.ViewModel(userName: response.userName, userAccount: response.userAccount, userAgency: agency, userBalance: balance)
+    let viewModel = Statements.UserData.ViewModel(userName: response.userName, userAccount: response.userAccount, userAgency: agency, userBalance: balance, userId: response.userId)
     viewController?.displayUser(viewModel: viewModel)
   }
+    func presentStatement(response: Statements.UserStatements.Response){
+        let viewModel = Statements.UserStatements.ViewModel(statements: response.statements)
+        viewController?.displayStatements(viewModel: viewModel)
+    }
 }

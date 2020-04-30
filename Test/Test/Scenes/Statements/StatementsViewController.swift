@@ -15,6 +15,7 @@ import UIKit
 protocol StatementsDisplayLogic: class
 {
   func displayUser(viewModel: Statements.UserData.ViewModel)
+    func displayStatements(viewModel: Statements.UserStatements.ViewModel)
 }
 
 class StatementsViewController: UIViewController, StatementsDisplayLogic
@@ -71,19 +72,26 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
     super.viewDidLoad()
     setupView()
     doSomething()
-    
+    doUserStatements()
   }
     
   
   // MARK: Do something
   
   //@IBOutlet weak var nameTextField: UITextField!
+    var userId = 0
     var userLabel: UILabel!
     var accountLabel: UILabel!
     var accountAgencyLabel: UILabel!
     var balanceLabel: UILabel!
     var balanceValueLabel: UILabel!
     var backgroundView: UIView!
+    var exitButton: UIButton!
+    var recent: UILabel!
+    var tableView: UITableView!
+    
+    var statements = [Statement]()
+    let cellId = "cellId"
     
     func setupView(){
         backgroundView = UIView()
@@ -117,7 +125,21 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         balanceLabel.textColor = .white
         view.addSubview(balanceLabel)
         
+        exitButton = UIButton()
+        exitButton.setImage(UIImage(named: "logout"), for: .normal)
+        view.addSubview(exitButton)
         
+        recent = UILabel()
+        recent.text = "Recentes"
+        recent.font = recent.font.withSize(17)
+        recent.textColor = UIColor(red: 72/255, green: 84/255, blue: 101/255, alpha: 1)
+        view.addSubview(recent)
+        
+        tableView = UITableView()
+        tableView.register(StatementViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.dataSource = self
+        tableView.delegate = self
+        view.addSubview(tableView)
         
         setupLayout()
     }
@@ -155,6 +177,22 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
         
         backgroundView.bottomAnchor.constraint(equalTo: balanceValueLabel.bottomAnchor, constant: 16).isActive = true
         
+        exitButton.translatesAutoresizingMaskIntoConstraints = false
+        exitButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        exitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12).isActive = true
+        exitButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
+        exitButton.widthAnchor.constraint(equalToConstant: 27).isActive = true
+        
+        recent.translatesAutoresizingMaskIntoConstraints = false
+        recent.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 14).isActive = true
+        recent.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: recent.bottomAnchor, constant: 8).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16).isActive = true
+        
     }
   
   func doSomething()
@@ -162,6 +200,11 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
     let request = Statements.UserData.Request()
     interactor?.doSomething(request: request)
   }
+    
+    func doUserStatements(){
+        let request = Statements.UserStatements.Request(userId: userId)
+        interactor?.getStatements(request: request)
+    }
   
   func displayUser(viewModel: Statements.UserData.ViewModel)
   {
@@ -169,5 +212,29 @@ class StatementsViewController: UIViewController, StatementsDisplayLogic
     userLabel.text = viewModel.userName
     balanceValueLabel.text = "\(viewModel.userBalance)"
     accountAgencyLabel.text = "\(viewModel.userAccount) / \(viewModel.userAgency)"
+    userId = viewModel.userId
   }
+    
+    func displayStatements(viewModel: Statements.UserStatements.ViewModel){
+        statements = viewModel.statements
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
+}
+extension StatementsViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        statements.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! StatementViewCell
+        cell.configure(model: statements[indexPath.row])
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }

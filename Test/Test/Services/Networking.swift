@@ -62,7 +62,7 @@ class Networking{
     }
     
     func getUserStatements(userId: Int, completion: @escaping (StatementResponse) -> ()){
-        let path = Endpoints.Statements.getStatements(userId).path
+        let path = Endpoints.Statements.getStatements(userId).url
         guard let url = URL(string: path) else {return}
         
         URLSession.shared.dataTask(with: url){ (data, resp, err) in
@@ -74,8 +74,8 @@ class Networking{
             guard let data = data else {return}
             
             do{
-                let response = try JSONDecoder().decode(StatementResponse.self, from: data)
-            
+                var response = try JSONDecoder().decode(StatementResponse.self, from: data)
+                response.error = nil
                 completion(response)
                 
             }catch let jsonErr{
